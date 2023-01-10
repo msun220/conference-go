@@ -99,37 +99,35 @@ def api_list_presentations(request, conference_id):
         )
 
 
+@require_http_methods(["DELETE", "GET", "PUT"])
 def api_show_presentation(request, pk):
-    """
-    Returns the details for the Presentation model specified
-    by the pk parameter.
 
-    This should return a dictionary with the presenter's name,
-    their company name, the presenter's email, the title of
-    the presentation, the synopsis of the presentation, when
-    the presentation record was created, its status name, and
-    a dictionary that has the conference name and its URL
+    if request.method == "GET":
+        presentation = Presentation.objects.get(id=pk)
+        return JsonResponse(
+            presentation,
+            encoder=PresentationDetailEncoder,
+            safe=False,
+        )
+    elif request.method == "DELETE":
+        count, _ = Presentation.objects.filter(id=pk).delete()
+        return JsonResponse({"deleted": count > 0})
+    else:
+        content = json.loads(request.body)
+        try:
+            conference = Conference.objects.get(id=content["conference"])
+            content["conference"] = conference
+        except Conference.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid conference id"},
+                status=400,
+            )
+        presentation = Presentation.objects.filter(id=pk).update(**content)
+        presentation = Presentation.objects.get(id=pk)
+        return JsonResponse(
+            presentation, encoder=PresentationDetailEncoder, safe=False
+        )
 
-    {
-        "presenter_name": the name of the presenter,
-        "company_name": the name of the presenter's company,
-        "presenter_email": the email address of the presenter,
-        "title": the title of the presentation,
-        "synopsis": the synopsis for the presentation,
-        "created": the date/time when the record was created,
-        "status": the name of the status for the presentation,
-        "conference": {
-            "name": the name of the conference,
-            "href": the URL to the conference,
-        }
-    }
-    """
-    presentation = Presentation.objects.get(id=pk)
-    return JsonResponse(
-        presentation,
-        encoder=PresentationDetailEncoder,
-        safe=False,
-    )
 
 
 @require_http_methods(["PUT"])
