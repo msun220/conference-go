@@ -28,8 +28,6 @@ window.addEventListener('DOMContentLoaded', async () => {
         const response = await fetch(locationUrl, fetchConfig);
         if (response.ok) {
             formTag.reset();
-            const newLocation = await response.json();
-            console.log(newLocation);
         }
     });
 

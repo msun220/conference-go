@@ -71,7 +71,7 @@ def api_list_conferences(request):
     }
     """
     if request.method == "GET":
-        conferences = Conference.objects.all()
+        conferences = Conference.objects.order_by('name')
         return JsonResponse(
             {"conferences": conferences},
             encoder=ConferenceListEncoder,

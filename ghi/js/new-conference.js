@@ -28,8 +28,6 @@ window.addEventListener('DOMContentLoaded', async () => {
         const response = await fetch(conferenceUrl, fetchConfig);
         if (response.ok) {
             formTag.reset();
-            const newConference = await response.json();
-            console.log(newConference);
         }
     })
 
