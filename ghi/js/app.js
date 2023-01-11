@@ -17,7 +17,6 @@ function createCard(name, location, description, pictureUrl, starts, ends) {
 
 
 window.addEventListener('DOMContentLoaded', async () => {
-  debugger;
   const url = 'http://localhost:8000/api/conferences/';
 
   try {
