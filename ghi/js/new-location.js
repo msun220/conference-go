@@ -1,16 +1,6 @@
 window.addEventListener('DOMContentLoaded', async () => {
 
     const url = 'http://localhost:8000/api/states/'
-    // try {
-    //     const response = await fetch(url);
-    //     if (!response.ok) {
-    //         const container = document.querySelector(".container");
-    //         container.innerHTML = "<div class='alert alert-warning' role='alert'> Could not retrieve data from server! </div>";
-    //     } else {
-    //         const data = await response.json();
-    //         console.log(data)
-    //     }
-    // }
     const response = await fetch(url);
     const data = await response.json();
     const selectTag = document.getElementById('state');
