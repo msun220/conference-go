@@ -15,15 +15,17 @@ function createCard(name, location, description, pictureUrl, starts, ends) {
   `;
 }
 
-window.addEventListener('DOMContentLoaded', async () => {
 
+window.addEventListener('DOMContentLoaded', async () => {
+  debugger;
   const url = 'http://localhost:8000/api/conferences/';
 
   try {
     const response = await fetch(url);
 
     if (!response.ok) {
-      // Figure out what to do when the response is bad
+      const container = document.querySelector(".container");
+      container.innerHTML = "<div class='alert alert-warning' role='alert'> Could not retrieve data from server! </div>";
     } else {
       const data = await response.json();
 
@@ -48,8 +50,9 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     }
   } catch (e) {
-    console.error(e);
-    // Figure out what to do if an error is raised
+    // console.error(e);
+    const container = document.querySelector(".container");
+    container.innerHTML = "<div class='alert alert-warning' role='alert'> Could not retrieve conference data from URL! </div>";
   }
 
 });
