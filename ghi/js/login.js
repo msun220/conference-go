@@ -16,4 +16,15 @@ window.addEventListener('DOMContentLoaded', () => {
         console.error(response);
       }
     });
+
+    // const logInButton = document.getElementById('logout-link');
+    // logInButton.addEventListener('click', async () => {
+    //   const fetchOptions = {
+    //     method: 'post',
+    //   };
+    //   const url = 'https://localhost:8000/api/token/refresh/logout/'
+    //   const response = await fetch(url, fetchOptions);
+    //   console.log(response);
+    // })
+
   });
