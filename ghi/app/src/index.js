@@ -22,9 +22,9 @@ async function loadAttendees() {
   if (response.ok) {
     const data = await response.json();
     root.render(
-      <React.StrictMode>
+      // <React.StrictMode>
         <App attendees={data.attendees} />
-      </React.StrictMode>
+      // </React.StrictMode>
     );
   } else {
     console.error(response);

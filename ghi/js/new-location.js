@@ -6,8 +6,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     const selectTag = document.getElementById('state');
     for (let state of data.states) {
         const optionElement = document.createElement("option");
-        optionElement.value = Object.values(state)[0];
-        optionElement.innerHTML = Object.keys(state)[0];
+        optionElement.value = state.abbreviation;
+        optionElement.innerHTML = state.name;
         selectTag.appendChild(optionElement);
     }
 
