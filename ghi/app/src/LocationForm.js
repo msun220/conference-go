@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 
 function LocationForm () {
-    const [states, setStates] = useState([]) //states is var (starts as [] when loaded), setstates is func
+    const [states, setStates] = useState([]); //states is var (starts as [] when loaded), setstates is func
     const [name, setName] = useState("");
     const [roomCount, setRoomCount] = useState("");
     const [city, setCity] = useState("");
@@ -44,7 +44,6 @@ function LocationForm () {
         data.name = name;
         data.city = city;
         data.state = state;
-        console.log(data)
 
         const locationUrl = 'http://localhost:8000/api/locations/';
         const fetchConfig = {
@@ -57,7 +56,6 @@ function LocationForm () {
         const response = await fetch(locationUrl, fetchConfig);
         if (response.ok) {
             const newLocation = await response.json();
-            console.log(newLocation);
             setName('');
             setRoomCount('');
             setCity('');
