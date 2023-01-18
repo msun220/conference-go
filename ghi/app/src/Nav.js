@@ -11,7 +11,7 @@ function Nav() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Home</a>
+              <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" id="new-location-link" aria-current="page" to="/locations/new">New location</NavLink>
@@ -20,7 +20,7 @@ function Nav() {
               <NavLink className="nav-link" id="new-conference-link" aria-current="page" to="/conferences/new">New conference</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" id="new-presentation-link" aria-current="page" to="/presentation/new">New presentation</NavLink>
+              <NavLink className="nav-link" id="new-presentation-link" aria-current="page" to="/presentations/new">New presentation</NavLink>
             </li>
             <li className="nav-item">
               <a className="nav-link" id="login-link" aria-current="page" href="login.html">Login here</a>
