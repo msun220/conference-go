@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 function Nav() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -12,18 +14,23 @@ function Nav() {
               <a className="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" id="new-location-link" aria-current="page" href="new-location.html">New location</a>
+              <NavLink className="nav-link" id="new-location-link" aria-current="page" to="/locations/new">New location</NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" id="new-conference-link" aria-current="page" href="new-conference.html">New conference</a>
+              <NavLink className="nav-link" id="new-conference-link" aria-current="page" to="/conferences/new">New conference</NavLink>
             </li>
-            <li className="nav-item d-none">
-              <a className="nav-link" id="new-presentation-link" aria-current="page" href="new-presentation.html">New presentation</a>
+            <li className="nav-item">
+              <NavLink className="nav-link" id="new-presentation-link" aria-current="page" to="/presentation/new">New presentation</NavLink>
             </li>
             <li className="nav-item">
               <a className="nav-link" id="login-link" aria-current="page" href="login.html">Login here</a>
             </li>
           </ul>
+          <form className="d-flex">
+            <input className="form-control me-2" type="search" placeholder="Search conferences" aria-label="Search"/>
+            <button className="btn btn-outline-success me-2" type="submit">Search</button>
+            <NavLink className="btn btn-primary" to="/attendees/new">Attend!</NavLink>
+          </form>
         </div>
         </div>
         </nav>
