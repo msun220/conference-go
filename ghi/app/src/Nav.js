@@ -22,7 +22,7 @@ function Nav() {
             <li className="nav-item">
               <NavLink className="nav-link" id="new-presentation-link" aria-current="page" to="/presentations/new">New presentation</NavLink>
             </li>
-            <li className="nav-item">
+            <li className="nav-item d-none">
               <a className="nav-link" id="login-link" aria-current="page" href="login.html">Login here</a>
             </li>
           </ul>
