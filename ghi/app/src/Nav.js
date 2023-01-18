@@ -17,7 +17,7 @@ function Nav() {
             <li className="nav-item">
               <a className="nav-link" id="new-conference-link" aria-current="page" href="new-conference.html">New conference</a>
             </li>
-            <li className="nav-item">
+            <li className="nav-item d-none">
               <a className="nav-link" id="new-presentation-link" aria-current="page" href="new-presentation.html">New presentation</a>
             </li>
             <li className="nav-item">

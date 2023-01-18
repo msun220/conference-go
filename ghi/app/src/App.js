@@ -1,7 +1,8 @@
 import Nav from './Nav';
 // import AttendeesList from './AttendeesList';
 // import LocationForm from './LocationForm';
-import ConferenceForm from './ConferenceForm';
+// import ConferenceForm from './ConferenceForm';
+import AttendConference from './AttendConference';
 
 
 function App(props) {
@@ -12,7 +13,8 @@ function App(props) {
     <>
       <Nav />
       <div className="container">
-        <ConferenceForm />
+        <AttendConference />
+        {/* <ConferenceForm /> */}
         {/* <LocationForm /> */}
         {/* <AttendeesList attendees={props.attendees} /> */}
       </div>
